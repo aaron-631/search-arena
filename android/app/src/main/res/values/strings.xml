@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Search Arena</string>
+    <string name="title_activity_main">Search Arena</string>
+    <string name="package_name">com.searcharena.app</string>
+    <string name="custom_url_scheme">com.searcharena.app</string>
+</resources>
