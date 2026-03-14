@@ -12,6 +12,7 @@ import { SearchTreeViz } from './components/SearchTreeViz.jsx';
 import { db, auth, provider }                          from './firebase.js';
 import {
   signInWithRedirect,
+  signInWithPopup,
   getRedirectResult,
   signOut,
   onAuthStateChanged,
@@ -335,9 +336,16 @@ export default function App() {
   const handleSignIn = async () => {
     setSigningIn(true);
     try {
-      // signInWithRedirect works in both browser and Capacitor WebView
-      await signInWithRedirect(auth, provider);
-      // Page redirects — setSigningIn(false) not needed here
+      // Capacitor WebView blocks popups — use redirect on mobile APK
+      // Regular browser works best with popup (no page reload)
+      const isCapacitor = window.Capacitor !== undefined;
+      if (isCapacitor) {
+        await signInWithRedirect(auth, provider);
+        // page redirects away — don't setSigningIn(false)
+      } else {
+        await signInWithPopup(auth, provider);
+        setSigningIn(false);
+      }
     } catch (e) {
       console.error('Sign-in failed:', e);
       setSigningIn(false);
