@@ -470,7 +470,7 @@ export default function App() {
               </Panel>
             </div>
 
-            <div style={{ display:'grid', gridTemplateColumns:'auto 1fr', gap:18, alignItems:'start' }}>
+            <div style={{ display:'flex', flexWrap:'wrap', gap:18, alignItems:'flex-start', width:'100%' }}>
               <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
 
                 <Panel title={solved ? '✓ SOLVED!' : `PUZZLE  [MOVES: ${moves}]`} gc={solved?'#00ff88':'#00cfff'}>
@@ -560,7 +560,7 @@ export default function App() {
 
                 {(algos.includes('astar') || algos.includes('greedy')) && (
                   <Panel title="HEURISTIC VALUES">
-                    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:7 }}>
+                    <div style={{display:'flex', flexWrap:'wrap', gap:7 }}>
                       <MetricBox label="Manhattan h" value={manhattanDistance(curState)} color="#00cfff" />
                       <MetricBox label="Misplaced h" value={misplacedTiles(curState)}    color="#ffdd00" />
                     </div>
@@ -641,7 +641,7 @@ export default function App() {
                 )}
 
                 <Panel title="ALGORITHM REFERENCE">
-                  <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:7 }}>
+                  <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
                     {[
                       { label:'BFS',    color:'#00ff88', desc:'Level-by-level. Complete & optimal.',       tag:'O(b^d)'   },
                       { label:'DFS',    color:'#ff6b35', desc:'Stack-based. Memory-light, not optimal.',   tag:'O(bm)'    },
@@ -693,7 +693,7 @@ export default function App() {
               </Panel>
             </div>
 
-            <div style={{ display:'grid', gridTemplateColumns:'auto 1fr', gap:18, alignItems:'start' }}>
+            <div style={{ display:'flex', flexWrap:'wrap', gap:18, alignItems:'flex-start', width:'100%' }}>
               <Panel title="CHESSBOARD" gc="#ffdd00">
                 <NQueensBoard board={curNqBoard} n={nqSize} stepInfo={nqRes?.steps[nqStep]} onSquareClick={nqRes ? undefined : handleNqClick} />
                 {nqRes && (
@@ -722,7 +722,7 @@ export default function App() {
               <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
                 {nqRes && (
                   <Panel title="METRICS" gc="#00cfff">
-                    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:7 }}>
+                    <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
                       <MetricBox label="Nodes Explored" value={nqRes.nodesExplored} color="#00cfff" />
                       <MetricBox label="Steps"          value={nqRes.steps.length}  color="#ffdd00" />
                       <MetricBox label="Time"           value={`${nqRes.time.toFixed(1)}ms`} color="#00ff88" />
@@ -734,7 +734,7 @@ export default function App() {
                 )}
                 {!nqRes && (
                   <Panel title="MANUAL PLAY" gc={isManualSolved ? "#00ff88" : "#ffdd00"}>
-                    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:7 }}>
+                    <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
                       <MetricBox label="Queens"    value={`${queensPlaced} / ${nqSize}`}
                         color={isBoardFull?'#00cfff':'#ffdd00'} />
                       <MetricBox label="Conflicts" value={isBoardFull ? manualAttacks : '-'}
@@ -748,7 +748,7 @@ export default function App() {
                   </Panel>
                 )}
                 <Panel title="ALGORITHM NOTES">
-                  <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:7 }}>
+                  <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
                     {[
                       { label:'BACKTRACKING',  color:'#00ff88', desc:'Systematic DFS with pruning. Complete — always finds a solution.', tag:'COMPLETE'    },
                       { label:'HILL CLIMBING', color:'#ffdd00', desc:'Local search minimising attacks. Fast but may need random restarts.', tag:'LOCAL SEARCH' },
@@ -854,7 +854,7 @@ export default function App() {
                   </table>
                 </Panel>
 
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
+                <div style={{ display:'flex', flexWrap:'wrap', gap:12 }}>
                   {[{ key:'avgNodes', label:'AVG NODES EXPLORED' },{ key:'avgTime', label:'AVG TIME (ms)' }].map(({ key, label }) => (
                     <Panel key={key} title={label}>
                       {AMETA.filter(a=>benchRes.results[a.id]).map(a => {
@@ -980,7 +980,7 @@ export default function App() {
 
             {/* Scoring guide */}
             <Panel title="📐 HOW SCORING WORKS" gc="#555" style={{ marginBottom:14 }}>
-              <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:10, fontSize:11, color:'#555' }}>
+              <div style={{ display:'flex', flexWrap:'wrap', justifyContent:'center', gap:10, fontSize:11, color:'#555' }}>
                 {[
                   { d:'EASY',   base:'1,000', mult:'×1',   color:'#00ff88' },
                   { d:'MEDIUM', base:'2,500', mult:'×1.5', color:'#ffdd00' },
