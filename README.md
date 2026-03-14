@@ -148,6 +148,7 @@ search-arena/
 - Node.js 18+
 - npm 9+
 - A Firebase project (free Spark plan works)
+- Android Studio (only required for APK builds — [download here](https://developer.android.com/studio))
 
 ### Installation
 
@@ -284,15 +285,21 @@ A configuration is solvable if and only if the number of inversions is even. Thi
 
 ---
 
+## Demo
+
+> 📹 [Watch the full demo video](https://github.com/aaron-631/search-arena/blob/main/docs/Tab-1773517149528.webm)
+
 ## Screenshots
 
 | 8-Puzzle Race Mode | N-Queens Visualiser |
 |:---:|:---:|
-| *Algorithm race results with node comparison bars* | *Backtracking step-by-step on 8×8 board* |
+| ![8-Puzzle](https://raw.githubusercontent.com/aaron-631/search-arena/main/docs/4.png) | ![N-Queens](https://raw.githubusercontent.com/aaron-631/search-arena/main/docs/3.png) |
+| Algorithm race with node comparison bars | Backtracking step-by-step on 8×8 board |
 
 | Benchmark Research Mode | Global Leaderboard |
 |:---:|:---:|
-| *40-puzzle batch analysis with interpretation* | *Score-ranked competitive leaderboard* |
+| ![Benchmark](https://raw.githubusercontent.com/aaron-631/search-arena/main/docs/2.png) | ![Leaderboard](https://raw.githubusercontent.com/aaron-631/search-arena/main/docs/1.png) |
+| 40-puzzle batch analysis with interpretation | Score-ranked competitive leaderboard |
 
 ---
 
@@ -312,9 +319,29 @@ Built as a **Web and Mobile Application Development** assignment for the B.Tech 
 
 **Aaron Chakraborty**
 B.Tech CSE · KIIT University · Roll No. 2305671
-Cybersecurity AI/ML Researcher · 
+Cybersecurity AI/ML Researcher Intern · SwiftSafe
 
 [![GitHub](https://img.shields.io/badge/GitHub-aaron--631-181717?style=flat-square&logo=github)](https://github.com/aaron-631)
+
+---
+
+## Contributing
+
+Contributions are welcome. This started as an academic project but there's plenty of room to grow — IDDFS, bidirectional search, 15-puzzle support, multiplayer challenges, and more.
+
+```bash
+# 1. Fork the repository
+# 2. Create a feature branch
+git checkout -b feature/your-feature-name
+
+# 3. Make your changes and commit
+git commit -m "feat: describe your change"
+
+# 4. Push and open a pull request
+git push origin feature/your-feature-name
+```
+
+Please keep PRs focused — one feature or fix per PR. If you're adding a new algorithm, include it in the race runner and benchmark suite too, not just as a standalone file.
 
 ---
 
