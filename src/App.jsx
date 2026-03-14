@@ -10,7 +10,12 @@ import { PuzzleBoard }   from './components/PuzzleBoard.jsx';
 import { NQueensBoard }  from './components/NQueensBoard.jsx';
 import { SearchTreeViz } from './components/SearchTreeViz.jsx';
 import { db, auth, provider }                          from './firebase.js';
-import { signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth';
+import { 
+  signInWithPopup, // Change this back from signInAnonymously
+  GoogleAuthProvider, 
+  signOut, 
+  onAuthStateChanged 
+} from 'firebase/auth';
 import { collection, addDoc, getDocs, orderBy, query,
          limit, doc, setDoc, getDoc }                   from 'firebase/firestore';
 
@@ -327,14 +332,17 @@ export default function App() {
   // ── Auth helpers ───────────────────────────────────────────────────────
 
   const handleSignIn = async () => {
-  setSigningIn(true);
-  try { await signInWithRedirect(auth, provider); }
-  catch (e) { console.error('Sign-in failed:', e); }
-  // Removed setSigningIn(false) because the page will redirect
-};
-  const handleSignOut = async () => {
-    try { await signOut(auth); }
-    catch (e) { console.error('Sign-out failed:', e); }
+    setSigningIn(true);
+    const provider = new GoogleAuthProvider(); // Re-initialize the provider
+    try {
+      // If you are on a laptop, popup is best. 
+      // If this fails on the APK, we know why (the localhost issue), 
+      // but this restores the "Early Sign In" you liked.
+      await signInWithPopup(auth, provider);
+    } catch (e) {
+      console.error('Sign-in failed:', e);
+    }
+    setSigningIn(false);
   };
 
   // ── Derived values ─────────────────────────────────────────────────────
