@@ -10,7 +10,7 @@ import { PuzzleBoard }   from './components/PuzzleBoard.jsx';
 import { NQueensBoard }  from './components/NQueensBoard.jsx';
 import { SearchTreeViz } from './components/SearchTreeViz.jsx';
 import { db, auth, provider }                          from './firebase.js';
-import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, getDocs, orderBy, query,
          limit, doc, setDoc, getDoc }                   from 'firebase/firestore';
 
@@ -327,12 +327,11 @@ export default function App() {
   // ── Auth helpers ───────────────────────────────────────────────────────
 
   const handleSignIn = async () => {
-    setSigningIn(true);
-    try { await signInWithPopup(auth, provider); }
-    catch (e) { console.error('Sign-in failed:', e); }
-    setSigningIn(false);
-  };
-
+  setSigningIn(true);
+  try { await signInWithRedirect(auth, provider); }
+  catch (e) { console.error('Sign-in failed:', e); }
+  // Removed setSigningIn(false) because the page will redirect
+};
   const handleSignOut = async () => {
     try { await signOut(auth); }
     catch (e) { console.error('Sign-out failed:', e); }
