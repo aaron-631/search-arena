@@ -15,7 +15,7 @@
 
 <br/>
 
-> An interactive platform for visualising, comparing, and competing against classical AI search algorithms — built as a third-year Computer Science Engineering project at KIIT University.
+> An interactive platform for visualising, comparing, and competing against classical AI search algorithms -built as a third-year Computer Science Engineering project at KIIT University.
 
 <br/>
 
@@ -29,7 +29,7 @@
 
 ## What Is This?
 
-Search Arena is a browser-based (and Android-native) visualiser that makes abstract AI algorithms tangible. Instead of reading pseudocode in a textbook, you watch each algorithm navigate the 8-Puzzle and N-Queens problems in real time — seeing exactly which nodes they explore, what heuristic values they compute, and how their search trees grow.
+Search Arena is a browser-based (and Android-native) visualiser that makes abstract AI algorithms tangible. Instead of reading pseudocode in a textbook, you watch each algorithm navigate the 8-Puzzle and N-Queens problems in real time -seeing exactly which nodes they explore, what heuristic values they compute, and how their search trees grow.
 
 Then you race them against each other. Then you play against them yourself.
 
@@ -37,14 +37,14 @@ Then you race them against each other. Then you play against them yourself.
 
 ## Features
 
-### 🧩 8-Puzzle — Algorithm Race Mode
+### 🧩 8-Puzzle -Algorithm Race Mode
 Run BFS, DFS, Greedy Best-First, and A* on the same puzzle simultaneously. A ranked results table shows nodes explored, solve depth, and time for each algorithm. Animated step-by-step playback lets you scrub through every single state expansion. An interactive search tree renders the first 200 nodes explored so you can see the shape of each algorithm's search frontier.
 
-### ♛ N-Queens — Backtracking vs Hill Climbing
+### ♛ N-Queens -Backtracking vs Hill Climbing
 Watch constraint-based backtracking systematically place and retract queens with full pruning visualisation. Or watch steepest-ascent hill climbing minimise conflicts with random restarts, showing every local minimum it escapes. Manual placement mode lets you attempt the puzzle yourself before seeing the algorithmic solution.
 
-### 📊 Benchmark — Research Mode
-Runs 40 randomly generated puzzles automatically and averages performance across every selected algorithm. Produces comparative bar charts for average nodes explored and average solve time. The interpretation panel automatically generates written analysis — e.g., how many percent fewer nodes A* explored compared to BFS at the chosen difficulty. Results are persisted to Firestore so you can compare runs over time.
+### 📊 Benchmark -Research Mode
+Runs 40 randomly generated puzzles automatically and averages performance across every selected algorithm. Produces comparative bar charts for average nodes explored and average solve time. The interpretation panel automatically generates written analysis -e.g., how many percent fewer nodes A* explored compared to BFS at the chosen difficulty. Results are persisted to Firestore so you can compare runs over time.
 
 ### 🏆 Competitive Game Mode
 A full score-based competitive layer sits on top of the visualiser. Sign in with Google, solve puzzles against the clock, and your best score is saved to a global leaderboard. Scores are calculated as:
@@ -60,7 +60,7 @@ score = max(0, baseDifficulty − (seconds × 10) − (moves × 5)) × multiplie
 | Hard | 5,000 | ×2 | 10,000 |
 
 ### 🔗 Challenge Links
-Every solved puzzle generates a shareable URL encoding the exact starting board state and difficulty. Send it to a friend — they load the same puzzle, solve it, and their score is automatically compared against yours on the leaderboard. The app validates inversion parity on load so tampered or unsolvable URLs silently fall back to a fresh puzzle.
+Every solved puzzle generates a shareable URL encoding the exact starting board state and difficulty. Send it to a friend -they load the same puzzle, solve it, and their score is automatically compared against yours on the leaderboard. The app validates inversion parity on load so tampered or unsolvable URLs silently fall back to a fresh puzzle.
 
 ---
 
@@ -77,9 +77,9 @@ Every solved puzzle generates a shareable URL encoding the exact starting board 
 
 ### Heuristics (8-Puzzle)
 
-**Manhattan Distance** — sum of horizontal and vertical distances each tile is from its goal position. Admissible and consistent. Dominates misplaced tiles at every node, meaning A* with Manhattan never expands more nodes than A* with misplaced tiles.
+**Manhattan Distance** -sum of horizontal and vertical distances each tile is from its goal position. Admissible and consistent. Dominates misplaced tiles at every node, meaning A* with Manhattan never expands more nodes than A* with misplaced tiles.
 
-**Misplaced Tiles** — count of tiles not currently in their goal position. Admissible but weaker. Included to demonstrate empirically that heuristic quality directly impacts search efficiency.
+**Misplaced Tiles** -count of tiles not currently in their goal position. Admissible but weaker. Included to demonstrate empirically that heuristic quality directly impacts search efficiency.
 
 ---
 
@@ -128,7 +128,7 @@ search-arena/
 │   │   ├── NQueensBoard.jsx  # n×n chessboard with queen rendering
 │   │   └── SearchTreeViz.jsx # D3-powered tree visualisation
 │   │
-│   ├── App.jsx               # Root component — all state and logic
+│   ├── App.jsx               # Root component -all state and logic
 │   ├── firebase.js           # Firebase app init + exports
 │   └── main.jsx              # React DOM entry point
 │
@@ -148,7 +148,7 @@ search-arena/
 - Node.js 18+
 - npm 9+
 - A Firebase project (free Spark plan works)
-- Android Studio (only required for APK builds — [download here](https://developer.android.com/studio))
+- Android Studio (only required for APK builds -[download here](https://developer.android.com/studio))
 
 ### Installation
 
@@ -262,7 +262,7 @@ npx cap open android
 # Build → Generate Signed APK
 ```
 
-> **Note:** Ensure `vite.config.js` has `base: './'` set — required for the WebView to load assets correctly.
+> **Note:** Ensure `vite.config.js` has `base: './'` set -required for the WebView to load assets correctly.
 
 ---
 
@@ -327,7 +327,7 @@ Cybersecurity AI/ML Researcher Intern · SwiftSafe
 
 ## Contributing
 
-Contributions are welcome. This started as an academic project but there's plenty of room to grow — IDDFS, bidirectional search, 15-puzzle support, multiplayer challenges, and more.
+Contributions are welcome. This started as an academic project but there's plenty of room to grow -IDDFS, bidirectional search, 15-puzzle support, multiplayer challenges, and more.
 
 ```bash
 # 1. Fork the repository
@@ -341,13 +341,13 @@ git commit -m "feat: describe your change"
 git push origin feature/your-feature-name
 ```
 
-Please keep PRs focused — one feature or fix per PR. If you're adding a new algorithm, include it in the race runner and benchmark suite too, not just as a standalone file.
+Please keep PRs focused -one feature or fix per PR. If you're adding a new algorithm, include it in the race runner and benchmark suite too, not just as a standalone file.
 
 ---
 
 ## License
 
-MIT — do whatever you want with it, attribution appreciated.
+MIT -do whatever you want with it, attribution appreciated.
 
 ---
 
